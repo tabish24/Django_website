@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+
+    </head>
+<body>
+
+
+
+    {% load static %}
+    
+        
+        <link rel="stylesheet" href="{% static 'signup.css' %}">
+
+
+
+    <main class="main">
+        <div class="main__container">
+          <h1 class="main__header main-title">Sign up</h1>
+          <p>
+            {{msg}}
+          </p>
+          <form action="signupdata" class="form" method="get">
+            <div class="form__input-box">
+              <input type="text" name="fname" id="fname" class="form__fname-input form__input generic-text" placeholder="First name" data-error="fname-error" data-success="fname-success" />
+              <p class="form__err-msg err-text" id="fname-error">
+                Can't be empty
+              </p>
+            </div>
+            <div class="form__input-box">
+              <input type="text" name="lname" id="lname" class="form__lname-input form__input generic-text" placeholder="Last name" data-error="lname-error" data-success="lname-success" />
+              <p class="form__err-msg err-text" id="lname-error">
+                Can't be empty
+              </p>
+            </div>
+            <div class="form__input-box">
+              <input type="text" name="username" id="username" class="form__username-input form__input generic-text" placeholder="Username" data-error="username-error" data-success="username-success" />
+              <p class="form__err-msg err-text" id="username-error">
+                Can't be empty
+              </p>
+            </div>
+            <div class="form__input-box">
+              <input type="email" name="email" id="email" class="form__email-input form__input generic-text" placeholder="Email address" data-error="email-error" data-success="email-success" />
+              <p class="form__err-msg err-text" id="email-error"></p>
+            </div>
+    
+            <div class="form__input-box">
+              <input type="password" name="password" id="password" class="form__password-input form__input generic-text" placeholder="Password" data-error="password-error" data-success="password-success" />
+    
+              <p class="form__err-msg err-text" id="password-error">
+                Can't be empty
+              </p>
+            </div>
+            <div class="form__input-box">
+              <input type="password" name="repeat-password" id="repeat-password" class="form__repeat-password-input form__input generic-text" placeholder="Repeat Password" data-error="repeat-password-error" data-success="repeat-password-success" />
+              <p class="form__err-msg err-text" id="repeat-password-error">
+                Can't be empty
+              </p>
+            </div>
+            <button type="submit" class="form__submit-btn generic-text createAccountBtn">
+              Create an Account
+            </button>
+          </form>
+          <p class="main__text generic-text">
+            <span>Already have an account?</span>
+            <a href="../login" class="main__login-link generic-text--link">Login</a>
+          </p>
+          
+        </div>
+      </main>
+    
+    
+
+</body>
+</html>

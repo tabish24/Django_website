@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+
+    </head>
+<body>
+
+
+
+    {% load static %}
+    
+        
+        <link rel="stylesheet" href="{% static 'login.css' %}">
+
+
+
+    <main class="main">
+        <div class="main__container">
+          <h1 class="main__header main-title">Login</h1>
+          {{msg}}
+    
+          <form action="login" class="form" method="get">
+            
+            <div class="form__input-box">
+              <input type="text" name="username" id="username" class="form__username-input form__input generic-text" placeholder="Username" data-error="username-error" data-success="username-success" />
+              <p class="form__err-msg err-text" id="username-error">
+                Can't be empty
+              </p>
+            </div>
+            
+    
+            <div class="form__input-box">
+              <input type="password" name="password" id="password" class="form__password-input form__input generic-text" placeholder="Password" data-error="password-error" data-success="password-success" />
+    
+              <p class="form__err-msg err-text" id="password-error">
+                Can't be empty
+              </p>
+            </div>
+            
+            <button type="submit" class="form__submit-btn generic-text createAccountBtn">
+              Login
+            </button>
+          </form>
+          
+        </div>
+      </main>
+    
+    
+
+</body>
+</html>

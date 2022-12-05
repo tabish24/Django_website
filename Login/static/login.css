@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --bg: #10141e;
+  --bg-form: #161d2f;
+  --color-text: white;
+  --color-greyish-blue: #5a698f;
+  --err-red: #fc4747;
+  --err-red-light: rgba(252, 71, 71, 0.6);
+  --success-green: rgb(148, 240, 148);
+  --primary-font: "Inconsolata", monospace;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  font: inherit;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body,
+#__next {
+  height: 100%;
+}
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+a,
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25rem 2.4rem;
+}
+.main {
+  width: 100%;
+  max-width: 32.7rem;
+  max-height: 42rem;
+  overflow: scroll;
+  background-color: var(--bg-form);
+  border-radius: 20px;
+  padding: 3.2rem 3.2rem 7.5rem 3.2rem;
+}
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.main__container {
+  color: var(--color-text);
+}
+.main__header {
+  margin-bottom: 4rem;
+}
+.form {
+  margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 33.6rem;
+}
+.form__input-box {
+  position: relative;
+}
+.form__input {
+  width: 100%;
+  padding-left: 1.6rem;
+  padding-bottom: 1.7rem;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid var(--color-greyish-blue);
+}
+.form__input:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-text);
+}
+.form__input.active-error {
+  border-bottom: 1px solid var(--err-red);
+}
+.form__input.active-error::placeholder {
+  color: var(--err-red-light);
+}
+.form__input.active-success {
+  border-bottom: 1px solid var(--success-green);
+}
+.form__err-msg {
+  display: none;
+  position: absolute;
+  left: 1.6rem;
+}
+.form__err-msg.active {
+  display: block;
+}
+.form__submit-btn {
+  background: var(--err-red);
+  border-radius: 6px;
+  padding: 1.4rem 0.2rem 1.5rem 0.2rem;
+}
+.form__submit-btn:hover,
+.form__submit-btn:focus {
+  background: var(--color-text);
+  color: var(--bg);
+}
+.main__text {
+  text-align: center;
+}
+@media all and (max-width: 768px) {
+  body {
+    padding: 0 2.4rem;
+  }
+  .main {
+    padding: 3.2rem 1rem;
+  }
+  .main__header {
+    text-align: center;
+  }
+}
+/* typography */
+
+.main-title {
+  font-weight: 300;
+  font-size: 3.2rem;
+  line-height: 4rem;
+  letter-spacing: -0.5px;
+}
+.err-text {
+  color: var(--err-red);
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+.generic-text {
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  color: var(--color-text);
+}
+.generic-text--link {
+  color: var(--err-red);
+}
+.generic-text--link:hover,
+.generic-text--link:focus {
+  color: var(--color-text);
+  text-decoration: underline;
+  transform: translateX(1rem);
+}
