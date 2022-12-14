@@ -19,11 +19,20 @@ def signupdata(request):
     print(request.GET['fname'])
 
 
-    en=Members(firstname=request.GET['fname'],lastname=request.GET['lname'],username=request.GET['username'],email=request.GET['email'],pwd=request.GET['password'],)
+    en=Members(
+    fname=request.GET['fname'],
+    lname=request.GET['lname'],
+    dob=request.GET['dob'], 
+    gender=request.GET['gender'],
+    phoneno=request.GET['phoneno'], 
+    email=request.GET['email'],
+    password=request.GET['password'],
+    comfirmpassword=request.GET['confirmpassword']
+    )
     en.save()
     
 
 
-    str1="Signup successfull: Please login now." + str(en.id) 
+    str1="Signup successfull: Please login now." + str(en.fname) 
     return render(request,'Signup.html',{'msg':str1})
     
