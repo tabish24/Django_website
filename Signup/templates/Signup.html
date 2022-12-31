@@ -17,19 +17,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="{% static 'resp.css' %}" />
+    <img.src="{% static './captcha2.jpg' %}">
   </head>
   <body id="body">
     {% load static %}
     <div class="header">
       <div class="logo">
-        <img src="{% static 'KSPL Logo micro Trans.png' %} alt="" />
+        <img src="{% static 'KSPL Logo micro Trans.png' %}" alt="" />
       </div>
       <div class="search-bar">
-        <input type="search" id="search-box" value="" /><i
-          class="fa fa-search"
-          aria-hidden="true"
-          id="search-icon"
-        ></i>
+        <input type="search" id="search-box" value="" /> <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
       </div>
       <i class="fa fa-bars"></i>
       <div class="right-bar">
@@ -43,18 +40,20 @@
     </div>
     <div class="cont" id="container">
       <h3>Create Account</h3>
-      <form id="form"action="signup" class="form" method="post">
+      <form id="form" action="signupdata" class="form" method="post">
+        {% comment %} {{msg}} {% endcomment %}
         {% csrf_token %}
+       
         <input type="text" id="f-name"placeholder="Enter First Name" name="fname"/>
         <p id="f-name-validation" class="pass-checker"></p>
         <input type="text" id="l-name" placeholder="Enter Last Name"name="lname"/>
         <p id="l-name-validation" class="pass-checker"></p>
         <input type="date" id="dob" name="dob" />
         <select name="gender" id="select-gender" name="gender">
-          <option value="Male">Gender</option>
+          <option value="">Gender</option>
           <option value="Male">Male</option>
-          <option value="Male">Female</option>
-          <option value="Male">Other</option>
+          <option value="female">Female</option>
+          <option value="Other">Other</option>
         </select>
         <input type="tel" id="phone" placeholder="Phone number" name="phone" />
         <input type="email" id="email" placeholder="Enter Email" name="email" />
@@ -62,17 +61,35 @@
         <input type="password"id="password" placeholder="Enter Password" name="password"/>
         <ul id="ul"></ul>
         <input
-          type="text" id="confirm password" placeholder="Confirm Password"/>
+          type="password" id="cpassword" placeholder="Confirm Password" name="cpassword" />
         <p id="same-pass" class="pass-checker"></p>
-        <div class="captcha">
-          <input type="text" id="output" disabled /><i
+        <div class="" id="CaptchaBlock">
+          <div class="captcha_div">
+          <canvas id="canvas" class="canvas"  >
+          
+           </canvas>
+          
+           <div class="form_div">     
+              <input type="text" name="userInput" id="userInput" placeholder="Enter the above text here:"> 
+                  <button onclick="generateCaptcha()" class=""> 
+                      <i >&#128472;</i>
+                  </button>
+                
+          
+          </div>   
+          
+          <button type="button" class="subm" onclick="validateCaptcha()">verify</button> 
+          </div>
+        {% comment %} <div class="captcha"> {% endcomment %}
+          {% comment %} <input type="text" id="output" disabled /><i
             class="fa-sharp fa-solid fa-arrows-rotate"
             id="ref"
-          ></i>
-          <input type="text" id="input" placeholder="Enter Your Captcha" />
+          ></i> {% endcomment %}
+          {% comment %} <input type="text" id="input" placeholder="Enter Your Captcha" /> {% endcomment %}
         </div>
-        <button id="sign-up" name="submit">Sign Up</button>
-        <p id="signUp-btn">Already have an account? <a href="#">Log In</a></p>
+        {% comment %} <button type="submit" id="sign-up" name="submit" value="submit" >Sign Up</button> {% endcomment %}
+        <input type="submit" id="sign-up"  value="Sign up"/>
+        <p id="signUp-btn">Already have an account? <a href="/login">Log In</a></p>
       </form>
     </div>
     <div class="footer">
@@ -83,8 +100,7 @@
             <i class="fa-solid fa-envelope"></i
             ><a
               href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqbQHCzlqmkrZDDXDQPGlfbqFkHGhrxGNlgNzCcRsmgzNtGhmdkvrPqMjHkZzVTMXdzhGq"
-              >For any query</a
-            >
+              >For any query</a>
           </p>
           <p><i class="fa-brands fa-whatsapp"></i><a>Whatsapp</a></p>
           <p><i class="fa-solid fa-phone"></i><a>Phone</a></p>
@@ -105,7 +121,8 @@
           <div class="adress">Suddhowala<br />Dehradun(UK)</div>
         </div>
         <div class="logo">
-          <img src="{% static 'KSPL Logo micro Trans.png' %}" alt="" />
+          
+          <img src="{% static 'KSPL Logo micro Trans.png'%}" alt="" />
         </div>
       </div>
       <div class="secondrow">

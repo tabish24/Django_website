@@ -297,3 +297,59 @@ form p a{
   margin-left: 85px;
   margin-right:85px ;
 }
+/* // ...........................captcha ........................*/
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 3rem;
+  width: 50%;
+}
+
+.form_div {
+  padding: 1rem;
+display: flex;
+}
+.subm {
+  border: none;
+  border-radius: 10px;
+  min-height: 5vh;
+width: 100%;
+  background-color: #ea4c89;
+}
+
+input {
+  width: 100%;
+  margin: 2px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+}
+
+input[type="text"] {
+  background-color: white;
+  color: black;
+}
+
+.reload {
+  border: none;
+  border-radius: 50%;
+  min-width: 10%;
+  max-height: 20px;
+  background-color: transparent;
+  margin-left: auto;
+}
+i {
+  font-size: 30px;
+}
+
+.canvas{
+  width: 100%;
+}
+.divBotm{
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-evenly;
+}

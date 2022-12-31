@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% load static %}
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>KSPL</title>
-    <link rel="stylesheet" type="text/css" href="./login.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
 </head>
     <body>
         <form>
             <div class="container">
                 <label><h1>Login</h1></label>
-                <label class="label"> Username </label>
-                <input type="text" placeholder="Username" class="username" required>
+                <label class="label"> Email </label>
+                <input type="text" placeholder="Enter the Email" class="email" required>
                 <label class="label"> Password </label>
-                <input type="password" placeholder="Password" class="username" required>
+                <input type="password" placeholder="Password" class="email" required>
                 <input type="submit" class="login" value="Login" required>
                 <a href="./forgotpassword.html">Forgot Password?</a>
-                <a href="./singup.html">Create an Account</a>
+                <a href="./singup">Create an Account</a>
             </div>
         </form>
     </body>

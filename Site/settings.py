@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+from django.core.mail import send_mail
 
 import os
 from pathlib import Path
@@ -40,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Signup.apps.SignupConfig',
     'Login.apps.LoginConfig',
+    'Homepage.apps.HomepageConfig',
+    'rest_framework',
+    'Signup'
     
     ]
 
@@ -58,7 +62,7 @@ ROOT_URLCONF = 'Site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'smo_temp')],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,14 +82,15 @@ WSGI_APPLICATION = 'Site.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'form',
-		'USER' : 'root',
-        'PORT': '3306',
-		'PASSWORD' :'Tabish4naz@',
-		'HOST' : '127.0.0.1'
-    }
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'Form_data',
+            'CLIENT': {
+                'host': 'mongodb+srv://sheikh:anassheikh18@cluster0.nu3uiwu.mongodb.net/test',
+                'username':'sheikh',
+                'password':'anassheikh18',
+                }
+                }
 }
 
 
@@ -123,9 +128,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# STATIC_URL = 'Signup/static/', 'Login/static/'
 STATIC_URL = 'Signup/static/'
+STATIC_ROOT = 'Signup/static'
+STATICFILES_DIRS = (
+    os.path.join(os.getcwd(), "static"),
+)
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER ="jamaltab24@gmail.com"
+EMAIL_HOST_PASSWORD = "zgjgficsmyxtfyhk"
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# send_mail(
+#     'Subject here',
+#     'Here is the message.',
+#     'djangoexamples0292@gmail.com',
+#     ['jamaltab24@gmail.com'],
+#     fail_silently=False,
+# )
